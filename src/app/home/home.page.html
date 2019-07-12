@@ -8,7 +8,15 @@
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+   <h1>Ionic Plugin Example <br/> (Geolocation)</h1>
+  
+    <ion-button (click)="getLocation()">Get Current Location</ion-button>
+  
+    <div *ngIf="lat && lng">
+      <p>Latitude: {{lat}}</p>
+      <p>Longitude: {{lng}}</p>
+    </div>
+  
+  
   </div>
 </ion-content>

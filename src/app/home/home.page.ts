@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { GeoService } from "../geo.service";
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +9,21 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private geoService: GeoService) {}
+
+  public lat;
+  public lng;
+
+  getLocation(){
+    this.geoService.getCurrentPosition()
+    .then(resp => {
+      this.lat = resp.coords.latitude;
+      this.lng = resp.coords.longitude;
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
+
 
 }
